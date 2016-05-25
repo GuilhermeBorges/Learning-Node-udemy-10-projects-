@@ -3,7 +3,7 @@ html(lang='en')
   head
     meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
     meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no')
-    title= title
+    title= 'MailSender'
     link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
     link(href='stylesheets/materialize.css', type='text/css', rel='stylesheet', media='screen,projection')
     link(href='stylesheets/style.css', type='text/css', rel='stylesheet', media='screen,projection')
@@ -13,61 +13,23 @@ html(lang='en')
       .nav-wrapper.container
         a#logo-container.brand-logo(href='#') Logo
         ul.right.hide-on-med-and-down
-          li
-            a(href='#') Navbar Link
+          //This is what makes the background on the top navbar to change accordingly with the page title
+          li(class=(title === 'Home' ? 'active': ''))
+            a(href='/') Home
+          li(class=(title === 'About' ? 'active': ''))
+            a(href='about') About
+          li(class=(title === 'Contact' ? 'active': ''))
+            a(href='contact') Contact
         ul#nav-mobile.side-nav
           li
-            a(href='#') Navbar Link
+            a(href='home') Home
+          li
+            a(href='about') About
+          li
+            a(href='contact') Contact
         a.button-collapse(href='#', data-activates='nav-mobile')
           i.material-icons menu
-    #index-banner.parallax-container
-      .section.no-pad-bot
-        .container
-          br
-          br
-          h1.header.center.teal-text.text-lighten-2 Parallax Template
-          .row.center
-            h5.header.col.s12.light A modern responsive front-end framework based on Material Design
-          .row.center
-            a#download-button.btn-large.waves-effect.waves-light.teal.lighten-1(href='http://materializecss.com/getting-started.html') Get Started
-          br
-          br
-      .parallax
-        img(src='images/background1.jpg', alt='Unsplashed background img 1')
-    .container
-      block content
-    .parallax-container.valign-wrapper
-      .section.no-pad-bot
-        .container
-          .row.center
-            h5.header.col.s12.light A modern responsive front-end framework based on Material Design
-      .parallax
-        img(src='images/background2.jpg', alt='Unsplashed background img 2')
-    .container
-      .section
-        // Icon Section
-        .row
-          .col.s12.m4
-            .icon-block
-              h2.center.brown-text
-                i.material-icons flash_on
-              h5.center Speeds up development
-              p.light
-                | We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.
-          .col.s12.m4
-            .icon-block
-              h2.center.brown-text
-                i.material-icons group
-              h5.center User Experience Focused
-              p.light
-                | By utilizing elements and principles of Material Design, we were able to create a framework that incorporates components and animations that provide more feedback to users. Additionally, a single underlying responsive system across all platforms allow for a more unified user experience.
-          .col.s12.m4
-            .icon-block
-              h2.center.brown-text
-                i.material-icons settings
-              h5.center Easy to work with
-              p.light
-                | We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.
+    block content
     .parallax-container.valign-wrapper
       .section.no-pad-bot
         .container

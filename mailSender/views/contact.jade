@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  .container
+    h1 #{title}
+    p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore   et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut   aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum   dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui   officia deserunt mollit anim id est laborum.
+    .row
+      form.col.s12(method='post',action='contact/send')
+        .row
+          .input-field.col.s6
+            input#first_name.validate(placeholder='Placeholder', type='text')
+            label(for='first_name') First Name
+          .input-field.col.s6
+            input#last_name.validate(type='text')
+            label(for='last_name') Last Name
+        .row
+          .input-field.col.s12
+            input#password.validate(type='password')
+            label(for='password') Password
+        .row
+          .input-field.col.s12
+            input#email.validate(type='email')
+            label(for='email') Email
+        .row
+          .input-field
+            button.col.s12.m4.btn.offset-m4(type='submit') Submit
