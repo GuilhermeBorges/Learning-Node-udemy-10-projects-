@@ -1,0 +1,10 @@
+.alert{
+	background-color: #FA3838;
+	text-transform: uppercase;
+	color: #fff;
+	border-radius: 5px;
+	padding: 15px;
+	margin-top: 20px;
+	text-align: center;
+	text-decoration: bold;
+}
