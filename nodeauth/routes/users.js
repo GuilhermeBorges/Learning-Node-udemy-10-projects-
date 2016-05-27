@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var User = require('../models/user');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -64,20 +65,20 @@ router.post('/register', function(req, res, next) {
 		});//render register
 	}//iferrors
 	else{
-		// var newUser = new User({
-		// 	name:name,
-		// 	email:email,
-		// 	username:username,
-		// 	password:password,
-		// 	profileImage: profileImageName
-		// });//newUser
+		var newUser = new User({
+			name:name,
+			email:email,
+			username:username,
+			password:password,
+			profileImage: profileImageName
+		});//newUser
 
-		// //Create User
-		// User.createUsers(newUser,function(err,user){
-		// 	if(err) throw err;
-		// 	console.log(user);
-		// });//createUser
-		//Succes Message
+		//Create User
+		User.createUser(newUser,function(err,user){
+			if(err) throw err;
+			console.log(user);
+		});//createUser
+		// Succes Message
 		req.flash('success','You are now registered and may log in');
 		res.location('/');
 		res.redirect('/');

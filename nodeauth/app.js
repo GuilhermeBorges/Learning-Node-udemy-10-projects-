@@ -16,7 +16,7 @@ var flash = require('connect-flash');
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
 var db = mongoose.connection;
-
+var User = require('./models/user');
 
 
 
