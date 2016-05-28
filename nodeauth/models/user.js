@@ -11,6 +11,16 @@ var UserSchema = mongoose.Schema({
 	password: {type:String, required:true/*, bcrypt:true*/},
 	email: {type:String},
 	name: {type:String},
+	active: {type: Boolean, defaul:true},//If the user is active or not
+	bureau: {type: Boolean, default: false},
+	city: {type: String, default:'SP'},
+	preferences:{
+		email: {type:String},
+		notificationsTime:{type: String, default:'weekly'},
+		nextNotification: {type: Date}
+		},
+	lastLogin: {type: Date},
+	associatedTo: {type:String},//Which bureau is this guy associated
 	profileImage: {type:String} //it is not the actually file but the path
 });//UserSchema
 

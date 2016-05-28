@@ -23,6 +23,8 @@ var User = require('./models/user');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var bureau = require('./routes/bureau');
+var associados = require('./routes/associados');
 
 var app = express();
 
@@ -90,6 +92,9 @@ app.get('*',function(req,res,next){
 
 app.use('/', routes);
 app.use('/users', users);
+// app.use('/associados', associados);
+app.use('/bureau', bureau);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

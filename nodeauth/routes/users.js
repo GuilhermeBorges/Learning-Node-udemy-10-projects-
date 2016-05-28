@@ -136,7 +136,9 @@ router.post('/login',passport.authenticate('local',{failureRedirect:'/users/logi
 	//it is running if the user authenticate
 	console.log('Authentication Successful');
 	req.flash('success','You are logged in');
-	res.redirect('/');
+
+	res.redirect('/calendar');
+
 });
 
 //Although is a get we don't want the user to go to a specific page, we just want to redirect the user and show a message

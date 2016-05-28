@@ -23,8 +23,15 @@ html(lang='en')
             li(class=(title === 'Login' ? 'active': ''))
               a(href='/users/login') Log In
           if user
+            if user.bureau
+              li
+                a(href='/bureau/associado') Associados
             li
-            a(href='/users/logout') Log Out
+              a(href='/calendario') Calendario
+            li
+              a(href='/users/logout') Log Out
+            li
+              a Bem vindo #{user.name}
         ul#nav-mobile.side-nav
           li(class=(title === 'Members' ? 'active': ''))
             a(href='/') Members
