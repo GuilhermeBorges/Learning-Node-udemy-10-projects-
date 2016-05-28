@@ -17,7 +17,6 @@ var UserSchema = mongoose.Schema({
 //Make this object available outside this model
 var User = module.exports = mongoose.model('User',UserSchema);
 
-
 module.exports.createUser = function(newUser,callback){
 	// bcrypt.hash(newUser.password, 10, function(err,hash){
 	// 	if(err) throw err;
@@ -27,3 +26,28 @@ module.exports.createUser = function(newUser,callback){
 	// });//bcrypthash
 	newUser.save(callback);
 };//createuser
+
+//
+module.exports.comparePassword = function(candidatePassword,hash,callback){
+	// bcrypt.compare(candidatePassword,hash,function(err,isMatch){
+	// 	if(err) return callback(err);
+	// 	callback(null,isMatch);
+	// });//bcryptcompare
+
+	if(candidatePassword==hash){
+		callback(null,true);
+	}
+	else{
+		callback(null,false);
+	}
+}; //comparePassword
+
+//
+module.exports.getUserByUsername = function(username,callback){
+	var query = {username:username};
+	User.findOne(query,callback);//mongoose
+}; //getUserByUsername
+//
+module.exports.getUserById = function(id,callback){
+	User.findById(id,callback);
+}; //getUserById
