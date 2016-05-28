@@ -139,4 +139,11 @@ router.post('/login',passport.authenticate('local',{failureRedirect:'/users/logi
 	res.redirect('/');
 });
 
+//Although is a get we don't want the user to go to a specific page, we just want to redirect the user and show a message
+router.get('/logout',function(req,res){
+	req.logout();
+	req.flash('success','You have logged out');
+	res.redirect('/users/login');
+});//GET logout
+
 module.exports = router;

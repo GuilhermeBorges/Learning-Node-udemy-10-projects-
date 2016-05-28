@@ -20,6 +20,7 @@ var User = require('./models/user');
 
 
 
+
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
@@ -78,6 +79,14 @@ app.use(function(req,res,next){
   res.locals.messages = require('express-messages')(req,res);
   next();
 }); 
+
+//this is a way of putting a kind of global variable with our user information
+app.get('*',function(req,res,next){
+  //create a local variable
+  res.locals.user = req.user || null; //git us the user object
+  next();//move on
+});
+
 
 app.use('/', routes);
 app.use('/users', users);
